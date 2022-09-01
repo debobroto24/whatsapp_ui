@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/pages/chat_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage>
     // length: 4,
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(120),
+        preferredSize: const Size.fromHeight(140),
         child: AppBar(
           title: const Padding(
             padding: EdgeInsets.only(top: 12),
@@ -120,6 +121,15 @@ class _HomePageState extends State<HomePage>
             ],
           ),
         ),
+      ),
+      body: TabBarView(
+        controller: _controller,
+        children: [
+          Text("camera"),
+          ChatPage(),
+          Text("status"),
+          Text("calls"),
+        ],
       ),
     );
   }
