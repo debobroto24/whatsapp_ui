@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/pages/message_page.dart';
 
 class Conversation extends StatelessWidget {
   const Conversation({Key? key}) : super(key: key);
@@ -15,22 +16,23 @@ class Conversation extends StatelessWidget {
               child: Image.asset('images/default.jpg',
                   height: 40, width: 40, fit: BoxFit.cover),
             ),
-            Padding(padding: EdgeInsets.only(left: 8.0), child: Text("rahul")),
+            const Padding(
+                padding: EdgeInsets.only(left: 8.0), child: Text("rahul")),
           ],
         ),
-        actions: [
-          const IconButton(
+        actions: const [
+          IconButton(
             onPressed: null,
-            icon: const Icon(
+            icon: Icon(
               Icons.video_call,
               size: 32,
               color: Colors.white,
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           IconButton(
             onPressed: null,
-            icon: const Icon(
+            icon: Icon(
               Icons.call,
               size: 32,
               color: Colors.white,
@@ -39,7 +41,7 @@ class Conversation extends StatelessWidget {
           SizedBox(width: 10),
           IconButton(
             onPressed: null,
-            icon: const Icon(
+            icon: Icon(
               Icons.more_vert,
               size: 32,
               color: Colors.white,
@@ -50,7 +52,7 @@ class Conversation extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Text('message'),
+            child: const MessagePage(),
           ),
           Container(
             alignment: Alignment.bottomCenter,
