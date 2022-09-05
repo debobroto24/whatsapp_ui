@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/pages/chat_list_screen.dart';
+import 'package:whatsapp/screens/chat_list_screen.dart';
 import 'package:whatsapp/widgets/custom_appbar.dart';
+
+import 'chat_list_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,145 +21,33 @@ class _HomePageState extends State<HomePage>
     _controller = TabController(length: 4, vsync: this);
   }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     // return DefaultTabController(
-//     // length: 4,
-//     return Scaffold(
-//       appBar: PreferredSize(
-//         preferredSize: const Size.fromHeight(140),
-//         child: AppBar(
-//           title: const Padding(
-//             padding: EdgeInsets.only(top: 12),
-//             child: Text(
-//               "Whatsapp",
-//               style: TextStyle(fontSize: 21),
-//             ),
-//           ),
-//           // ignore: prefer_const_literals_to_create_immutables
-//           actions: [
-//             const IconButton(
-//               padding: EdgeInsets.only(top: 12, right: 15),
-//               icon: Icon(Icons.search, size: 28, color: Colors.white),
-//               onPressed: null,
-//             ),
-//             const IconButton(
-//               padding: EdgeInsets.only(top: 12, right: 15),
-//               icon: Icon(Icons.more_vert, size: 28, color: Colors.white),
-//               onPressed: null,
-//             ),
-//           ],
-
-//           bottom: TabBar(
-//             controller: _controller,
-//             isScrollable: true,
-//             indicatorColor: Colors.white,
-//             indicatorWeight: 4,
-//             labelStyle:
-//                 const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-//             tabs: [
-//               const SizedBox(
-//                 width: 25,
-//                 child: Tab(
-//                   icon: Icon(Icons.camera_alt),
-//                 ),
-//               ),
-//               SizedBox(
-//                 width: 90,
-//                 child: Tab(
-//                   child: Row(
-//                     crossAxisAlignment: CrossAxisAlignment.center,
-//                     children: [
-//                       const Text(
-//                         "CHATS",
-//                         style: TextStyle(
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                       ),
-//                       const SizedBox(width: 8),
-//                       Container(
-//                         alignment: Alignment.center,
-//                         width: 20,
-//                         height: 20,
-//                         decoration: BoxDecoration(
-//                           color: Colors.white,
-//                           borderRadius: BorderRadius.circular(10),
-//                         ),
-//                         child: const Text(
-//                           "10",
-//                           style: TextStyle(
-//                             fontSize: 10,
-//                             color: Colors.black,
-//                           ),
-//                         ),
-//                       )
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//               const SizedBox(
-//                 width: 70,
-//                 child: Tab(
-//                   child: Text(
-//                     "STATUS",
-//                     style: TextStyle(
-//                       fontWeight: FontWeight.bold,
-//                       // color: Colors.white,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//               const SizedBox(
-//                 width: 70,
-//                 child: Tab(
-//                   child: Text(
-//                     "CALLS",
-//                     style: TextStyle(
-//                       fontWeight: FontWeight.bold,
-//                       // color: Colors.white,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//       body: TabBarView(
-//         controller: _controller,
-//         children: [
-//           Text("camera"),
-//           ChatPage(),
-//           Text("status"),
-//           Text("calls"),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
   @override
   Widget build(BuildContext context) {
     // return DefaultTabController(
     // length: 4,
     return Scaffold(
-        body: NestedScrollView(
-      headerSliverBuilder: (constext, _) {
-        return [
-          CustomAppBar(controller: _controller),
-        ];
-      },
-      body: TabBarView(
-        controller: _controller,
-        children: [
-          Text("camera"),
-          ChatListScreen(),
-          Text("status"),
-          Text("calls"),
-        ],
+      body: NestedScrollView(
+        headerSliverBuilder: (constext, _) {
+          return [
+            CustomAppBar(controller: _controller),
+          ];
+        },
+        body: TabBarView(
+          controller: _controller,
+          children: [
+            Text("camera"),
+            ChatListScreen(),
+            Text("status"),
+            Text("calls"),
+          ],
+        ),
       ),
-    )
-        //
-        );
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.message),
+        backgroundColor: Color.fromARGB(255, 10, 219, 118),
+      ),
+      //
+    );
   }
 }
